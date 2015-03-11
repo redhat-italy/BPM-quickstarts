@@ -2,7 +2,7 @@
 
 BPM Suite 6 Quickstart lab used at the SKO FY16 Quickstart Lab
 
-This quickstarts consist of these projects:
+Quickstarts consist of these projects:
 
 ##assets    
 
