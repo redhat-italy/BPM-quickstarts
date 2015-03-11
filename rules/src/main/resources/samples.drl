@@ -1,0 +1,20 @@
+package it.redhat.quickstartlab;
+
+import it.redhat.quickstartlab.model.Sample;
+
+rule "Base rule"
+salience 100
+when
+	$s: Sample( size > 5 )
+then
+    retract($s)
+end
+
+rule "Logging rule"
+salience 50
+when
+	$s: Sample()
+then
+    retract($s)
+	System.out.println("\nFound a sample passing the filter with id: " + $s.getId() + " and size: " + $s.getSize());
+end
