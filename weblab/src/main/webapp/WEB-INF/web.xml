@@ -3,5 +3,66 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Simple ReST service to mock rest calls in a BPM Suite demo</display-name>
+  <display-name>Simple Web App to demonstrate a deployment scenario for BPM Suite demo</display-name>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>pages</web-resource-name>
+            <url-pattern>/index.html</url-pattern>
+            <url-pattern>/task.html</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+            <role-name>analyst</role-name>
+            <role-name>developer</role-name>
+            <role-name>user</role-name>
+            <role-name>manager</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/login.jsp?message=Login failed: Invalid UserName or Password</form-error-page>
+        </form-login-config>
+    </login-config>
+
+    <security-role>
+        <description>Administrator - Administrates the BPMS system. Has full access
+            rights to make any changes necessary. Also has the
+            ability to add and remove users from the system.
+        </description>
+        <role-name>admin</role-name>
+    </security-role>
+
+    <security-role>
+        <description>Analyst - Responsible for creating and designing processes
+            into the system. Creates process flows and handles
+            process change requests. Needs to test processes that
+            they create. Also creates forms and dashboards.
+        </description>
+        <role-name>analyst</role-name>
+    </security-role>
+
+    <security-role>
+        <description>Developer - Implements code required for process to work. Mostly uses
+            the JBDS connection to view processes, but may use the
+            web tool occasionally.
+        </description>
+        <role-name>developer</role-name>
+    </security-role>
+
+    <security-role>
+        <description>User - generic user of the system.
+        </description>
+        <role-name>user</role-name>
+    </security-role>
+
+    <security-role>
+        <description>Manager - Company manager, same rights of the user.
+        </description>
+        <role-name>manager</role-name>
+    </security-role>
+
 </web-app>

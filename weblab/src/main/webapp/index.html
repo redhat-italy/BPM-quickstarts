@@ -9,15 +9,16 @@
     <link rel="stylesheet" type="text/css" href="eap.css" />
     <link rel="shortcut icon" href="favicon.ico" />
     <link href="css/bootstrap.css" rel="stylesheet">
-    <script src="js/bootstrap.js"></script>
     <script type="text/javascript" charset="utf8" src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/bootstrap.js"></script>
 
     <script>
         $(document).ready(function(){
             $("#start_simple").click(function(){
                 $.ajax({
-                    url:'http://bpm.dev:8080/business-central/rest/runtime/it.redhat.quickstartlab:processesforlabs:1.0-SNAPSHOT/process/processesforlabs.simple/start',
+                    url:'http://bpm.dev:8080/business-central/rest/runtime/it.redhat.quickstartlab:provisioninglab:1.0-SNAPSHOT/process/provisioninglab.provisioning/start',
                     type: 'POST',
+                    crossDomain: true,
                     dataType :   'json',
                     success: function(data){
                         var msg = "started instance with ID: ";
