@@ -39,10 +39,10 @@ where, of course, substitute *SomeJavaClass* with the correct main you want to r
 
 I suggest the following order:
 
-###First
+####First
 Creates a KnowledgeBase pulling the set of rules defined in the *rules* project, then put 50 facts in the session using objects defined in the *datamodel* project and fires the rules. Running the lab you should see a progress (text points) and occasionally a printout that the fact passed the filter, something like
 
-...
+`
           ========> inserting facts...
 
 ....................
@@ -55,8 +55,14 @@ Found a sample passing the filter with id: 1426418938355 and size: 4
 Found a sample passing the filter with id: 1426418950408 and size: 2
 ........
           ========> Finish
-...
+`
+####FirstWithScanner
+Same of *First* but adds the Scanner to the container, so the application is able to apply new rules in case of update. To use this lab follow this instructions:
 
+1. run the FirstWithScanner java app with the above command;
+2. while FirstWithScanner is running open your preferred IDE, open the rules project and modify the value of the sample size that filters samples (for example change it from 5 to 40);
+3. build and install the modified ruleset;
+4. look at the FirstWithScanner logs, you should see that the artifact is reloaded from the repository and more samples now pass the filter.
 
 ##weblab
 
