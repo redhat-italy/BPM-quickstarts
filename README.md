@@ -40,7 +40,7 @@ where, of course, substitute *SomeJavaClass* with the correct main you want to r
 I suggest the following order:
 
 ###First
-Creates a KnowledgeBase pulling the set of rules defined in the *rules* project, then put 50 facts in the session using objects defined in the *datamodel* project and fires the rules. Running the lab you should see that the app loads the required artifacts from the repository (in this case your local .m2 directory) a sort of progress bar (text points) and occasionally a printout that the fact passed the filter, something like
+Creates a KnowledgeBase pulling the set of rules defined in the *rules* project, then put 50 facts in the session using objects defined in the *datamodel* project and fires the rules. Running the lab you should see that the app loads the required artifacts from the repository (in this case your local .m2 directory) a sort of progress bar (text points) and occasionally a printout that the fact passed the filter, something like:
 
 `Found a sample passing the filter with id: 1426418938355 and size: 4`
 

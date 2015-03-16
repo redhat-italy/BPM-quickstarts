@@ -8,15 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
     <link rel="stylesheet" type="text/css" href="eap.css" />
     <link rel="shortcut icon" href="favicon.ico" />
-    <link href="css/bootstrap.css" rel="stylesheet">
     <script type="text/javascript" charset="utf8" src="js/jquery-2.1.3.min.js"></script>
-    <script src="js/bootstrap.js"></script>
 
     <script>
         $(document).ready(function(){
             $("#start_simple").click(function(){
                 $.ajax({
-                    url:'http://bpm.dev:8080/business-central/rest/runtime/it.redhat.quickstartlab:provisioninglab:1.0-SNAPSHOT/process/provisioninglab.provisioning/start',
+                    url:'/business-central/rest/runtime/it.redhat.quickstartlab:examples:1.0/process/examples.simple/start',
                     type: 'POST',
                     crossDomain: true,
                     dataType :   'json',
@@ -29,12 +27,14 @@
             });
             $("#start_proc_with_call").click(function(){
                 $.ajax({
-                    url:'/business-central/rest/runtime/it.redhat.quickstartlab:processesforlabs:1.0-SNAPSHOT/process/processesforlabs.callrest/start',
+                    url:'/business-central/rest/runtime/it.redhat.quickstartlab:examples:1.1/withvars/process/examples.callrest/start',
                     type: 'POST',
                     dataType :   'json',
                     success: function(data){
-                        var msg = "started instance with ID: ";
-                        msg += data.id;
+                        var msg = "ID: ";
+                        msg += data.processInstance.id;
+                        msg += " - KEY: ";
+                        msg += data.variables.key;
                         alert(msg);
                     }
                 })
@@ -65,10 +65,6 @@
         <h1>Red Hat SKO FY16 - Quickstart Lab</h1>
 
         <h3>A simple Web Application connecting to a local Business Central BPM Engine</h3>
-
-        <a href="#" id="start_simple">Task list</a>
-        <p>The <b>Task</b> page contains a list of tasks related to your group (or profile or role).</p>
-
 
         <a href="#" id="start_simple">Start a very simple process</a>
         <p>The minimal test you can try. Just starts a process on Business Central and returns the instance ID of the process.
